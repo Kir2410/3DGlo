@@ -21,6 +21,15 @@ const timer = (deadLine) => {
 
     const updateClock = () => {
         let getTime = getTimeRemainig();
+        if (getTime.hours < 10) {
+            getTime.hours = '0' + getTime.hours;
+        };
+        if (getTime.minutes < 10) {
+            getTime.minutes = '0' + getTime.minutes;
+        };
+        if (getTime.seconds < 10) {
+            getTime.seconds = '0' + getTime.seconds;
+        };
         timerHours.textContent = getTime.hours;
         timerMinutes.textContent = getTime.minutes;
         timerSeconds.textContent = getTime.seconds;
