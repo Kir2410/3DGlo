@@ -19,21 +19,19 @@ const timer = (deadLine) => {
         }
     };
 
+    const styler = (elem) => {
+        if (elem < 10) {
+            elem = '0' + elem;
+        };
+        return elem;
+    };
+
     const updateClock = () => {
         let getTime = getTimeRemainig();
-        if (getTime.hours < 10) {
-            getTime.hours = '0' + getTime.hours;
-        };
-        if (getTime.minutes < 10) {
-            getTime.minutes = '0' + getTime.minutes;
-        };
-        if (getTime.seconds < 10) {
-            getTime.seconds = '0' + getTime.seconds;
-        };
-        timerHours.textContent = getTime.hours;
-        timerMinutes.textContent = getTime.minutes;
-        timerSeconds.textContent = getTime.seconds;
-        console.log("test");
+
+        timerHours.textContent = styler(getTime.hours);
+        timerMinutes.textContent = styler(getTime.minutes);
+        timerSeconds.textContent = styler(getTime.seconds);
 
         if (getTime.timeRemainig <= 1) {
             clearInterval(timeCounter);

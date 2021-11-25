@@ -1,3 +1,3 @@
 import timer from './modules/timer'
 
-timer('24 november 2021 15:46')
+timer('25 november 2021 12:07')
