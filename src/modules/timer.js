@@ -19,12 +19,7 @@ const timer = (deadLine) => {
         }
     };
 
-    const styler = (elem) => {
-        if (elem < 10) {
-            elem = '0' + elem;
-        };
-        return elem;
-    };
+    const styler = (elem) => elem < 10 ? `0${elem}` : elem;
 
     const updateClock = () => {
         let getTime = getTimeRemainig();
