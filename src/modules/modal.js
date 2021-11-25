@@ -6,7 +6,7 @@ const modal = () => {
     let count = -50;
 
     const animationModal = () => {
-        let animStart = requestAnimationFrame(animModal);
+        let animStart = requestAnimationFrame(animationModal);
         modal.style.display = 'block';
 
         if (count < 21) {
@@ -20,8 +20,8 @@ const modal = () => {
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
-            animationModal();
-            console.dir(modal);
+            window.screen.availWidth >= 768 ? animationModal() : modal.style.display = 'block';
+            console.dir(window.screen);
         })
     });
 
