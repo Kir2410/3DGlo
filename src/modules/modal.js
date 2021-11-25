@@ -8,6 +8,7 @@ const modal = () => {
     const animationModal = () => {
         let animStart = requestAnimationFrame(animModal);
         modal.style.display = 'block';
+
         if (count < 21) {
             modalContent.style.top = `${count}%`;
         } else {
