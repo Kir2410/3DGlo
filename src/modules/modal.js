@@ -20,8 +20,7 @@ const modal = () => {
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
-            window.screen.availWidth >= 768 ? animationModal() : modal.style.display = 'block';
-            console.dir(window.screen);
+            window.innerWidth >= 768 ? animationModal() : modal.style.display = 'block';
         })
     });
 
