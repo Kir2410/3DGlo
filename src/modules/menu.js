@@ -6,8 +6,8 @@ const menu = () => {
     };
 
     document.addEventListener('click', (e) => {
-        if (e.target.closest('.menu') || e.target.closest('li') || e.target.classList.contains('close-btn') || (!e.target.classList.contains('active-menu') && menu.classList.contains('active-menu'))) {
-            console.log('мимо')
+        if (e.target.closest('.menu') || (e.target.tagName === 'A' && menu.classList.contains('active-menu')) || e.target.classList.contains('close-btn') || (!e.target.classList.contains('active-menu') && menu.classList.contains('active-menu') && !e.target.closest('li'))) {
+            console.dir(e.target)
             handleMenu();
         }
     })
