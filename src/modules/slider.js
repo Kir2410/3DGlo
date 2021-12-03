@@ -87,7 +87,6 @@ const slider = () => {
 
     addDot()
     startSlide(timerInterval)
-    console.dir(dots)
 }
 
 export default slider
