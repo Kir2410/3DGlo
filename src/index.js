@@ -22,11 +22,7 @@ sendForm({
     }]
 })
 sendForm({
-    formId: 'form2',
-    someElem: [{
-        type: 'input',
-        id: 'form2-message'
-    }]
+    formId: 'form2'
 })
 sendForm({
     formId: 'form3'

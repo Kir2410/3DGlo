@@ -3,6 +3,7 @@ const sendForm = ({
     someElem = []
 }) => {
     const form = document.getElementById(formId)
+    const formElements = form.querySelectorAll('input')
     const statusBlock = document.createElement('div')
     const loadText = 'Загрузка...'
     const errorText = 'Ошибка!'
@@ -11,11 +12,11 @@ const sendForm = ({
     const validate = (list) => {
         let success = true
 
-        // list.forEach(input => {
-        //     if (!input.classList.contains('success')) {
-        //         success = false
-        //     }
-        // })
+        list.forEach(input => {
+            if (!input.classList.contains('success')) {
+                success = false
+            }
+        })
 
         return success
     }
@@ -31,7 +32,6 @@ const sendForm = ({
     }
 
     const submitForm = () => {
-        const formElements = form.querySelectorAll('input')
         const formData = new FormData(form)
         const formBody = {}
 
@@ -63,7 +63,11 @@ const sendForm = ({
                 .catch(error => {
                     statusBlock.textContent = errorText
                 })
-        } else alert('Заполните пустые поля!')
+        } else {
+            statusBlock.textContent = errorText
+            alert('Заполните пустые поля!')
+        }
+
     }
 
     try {
@@ -73,6 +77,11 @@ const sendForm = ({
 
         form.addEventListener('submit', (e) => {
             e.preventDefault()
+            formElements.forEach((elem) => {
+                if (elem.value !== '') {
+                    elem.classList.add('success')
+                }
+            })
             submitForm()
         })
     } catch (error) {
